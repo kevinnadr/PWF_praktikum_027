@@ -57,3 +57,28 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+
+PRAKTIKUM 1
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4ba4918b-ff87-4d03-9d4d-7deabe8bff33" />
+
+
+PRAKTIKUM 2
+
+TAMPILAN DASHBOARD
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d3926957-7dfa-46cb-9b13-ccc7e462a2a6" />
+
+TAMPILAN ABOUT
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0c9d183e-6a08-40d1-9617-fef8e9e71071" />
+
+TAMPILAN REGISTER
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6accb0a8-0444-4ff0-8c1c-990555e73c10" />
+
+TAMPILAN LOGIN
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c29c9b87-0dc5-4a39-aade-fbb8f5bd8e11" />
+
+
+
+
