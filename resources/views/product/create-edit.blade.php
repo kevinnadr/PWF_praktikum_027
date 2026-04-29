@@ -38,6 +38,22 @@
                             @enderror
                         </div>
 
+                        <div>
+                            <label for="category_id" class="block text-sm font-medium text-gray-300 mb-1">
+                                Kategori <span class="text-red-500">*</span>
+                            </label>
+                            <select id="category_id" name="category_id" 
+                                    class="w-full px-4 py-2.5 rounded-lg border text-sm {{ $errors->has('category_id') ? 'border-red-500 bg-red-900/20' : 'border-gray-600 bg-gray-700' }} text-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition">
+                                <option value="" disabled {{ old('category_id', $product->category_id) ? '' : 'selected' }}>-- Pilih Kategori --</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}" {{ old('category_id', $product->category_id) == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('category_id')
+                                <p class="mt-1.5 text-xs text-red-400">{{ $message }}</p>
+                            @enderror
+                        </div>
+
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <label for="qty" class="block text-sm font-medium text-gray-300 mb-1">

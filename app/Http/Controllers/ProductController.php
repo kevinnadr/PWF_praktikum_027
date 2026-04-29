@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::paginate(10);
+        $products = Product::with('category', 'user')->paginate(10);
 
         return view('product.index', compact('products'));
     }
@@ -54,7 +54,8 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('product.create');
+        $categories = \App\Models\Category::all();
+        return view('product.create', compact('categories'));
     }
 
     public function show($id)
@@ -73,16 +74,17 @@ class ProductController extends Controller
             'name'  => 'required|string|max:255',
             'qty'   => 'required|integer',
             'price' => 'required|numeric|min:0',
+            'category_id' => 'required|exists:categories,id',
         ], [
             'name.required'  => 'Nama produk wajib diisi.',
             'name.max'       => 'Nama produk tidak boleh lebih dari 255 karakter.',
-
             'qty.required'   => 'Jumlah (kuantitas) produk wajib diisi.',
             'qty.integer'    => 'Jumlah produk harus berupa angka bulat (tidak boleh desimal).',
-
             'price.required' => 'Harga produk wajib diisi.',
             'price.numeric'  => 'Harga produk harus berupa angka yang valid.',
             'price.min'      => 'Harga produk tidak boleh negatif.',
+            'category_id.required' => 'Kategori wajib dipilih.',
+            'category_id.exists'   => 'Kategori tidak valid.',
         ]);
 
         $product->update($validated);
@@ -93,8 +95,9 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         \Illuminate\Support\Facades\Gate::authorize('update', $product);
+        $categories = \App\Models\Category::all();
 
-        return view('product.create-edit', compact('product'));
+        return view('product.create-edit', compact('product', 'categories'));
     }
 
     public function delete($id)
